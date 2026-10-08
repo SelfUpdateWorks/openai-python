@@ -1,0 +1,171 @@
+[
+  {
+    "product_id": 15970,
+    "input": {
+      "name": "Turtle Check Men Navy Blue Shirt",
+      "price": 46.99,
+      "category": "Apparel > Topwear > Shirts",
+      "image_path": "product_images/product_15970.jpg"
+    },
+    "generated_at": "2026-10-08T17:32:15",
+    "status": "success",
+    "listing": {
+      "title": "Navy Blue Turtle Check Shirt for Men - Casual Fall Style",
+      "description": "Step into the season with confidence in our Turtle Check Men Navy Blue Shirt. Designed for the modern man, this shirt combines classic check patterns with a rich navy blue hue, making it perfect for casual outings and relaxed gatherings. The short sleeves provide a comfortable fit, ideal for layering under a jacket or wearing solo. Versatile enough for both day and night, this shirt pairs seamlessly with jeans, chinos, or shorts, ensuring you always look your best. Whether you're grabbing coffee with friends or heading out for a weekend adventure, the Turtle Check shirt adds a stylish touch to any wardrobe. Elevate your fall fashion with this essential piece that embodies comfort and style.",
+      "features": [
+        "Rich navy blue color for a timeless look",
+        "Classic check pattern adds a stylish flair",
+        "Short sleeves for comfortable wear",
+        "Perfect for casual outings and relaxed gatherings",
+        "Versatile styling options with jeans, chinos, or shorts",
+        "Ideal for fall season wear",
+        "Easy to maintain and care for"
+      ],
+      "keywords": "navy blue shirt, men's casual shirt, turtle check shirt, fall apparel, short sleeve shirt, stylish men's top, comfortable casual wear, versatile shirt, everyday fashion, men's wardrobe essentials"
+    },
+    "usage": {
+      "prompt_tokens": 3140,
+      "completion_tokens": 276,
+      "total_tokens": 3416
+    },
+    "estimated_cost_usd": 0.000637,
+    "quality_issues": [
+      "description length 115 words (target 150-200)"
+    ]
+  },
+  {
+    "product_id": 39386,
+    "input": {
+      "name": "Peter England Men Party Blue Jeans",
+      "price": 40.99,
+      "category": "Apparel > Bottomwear > Jeans",
+      "image_path": "product_images/product_39386.jpg"
+    },
+    "generated_at": "2026-10-08T17:32:20",
+    "status": "success",
+    "listing": {
+      "title": "Stylish Peter England Men's Blue Party Jeans - $40.99",
+      "description": "Elevate your casual wardrobe with the Peter England Men Party Blue Jeans, designed for the modern man who values style and comfort. Crafted in a stunning blue hue, these jeans are perfect for summer outings, ensuring you look effortlessly cool while enjoying the sun. The classic fit offers a versatile look that pairs seamlessly with any casual shirt or tee, making them ideal for parties, gatherings, or relaxed weekend adventures. With their stylish design and perfect fit, these jeans are not just a piece of clothing; they are a fashion statement. Step out in confidence and make a lasting impression with Peter England. At just $40.99, these jeans are a must-have addition to your summer wardrobe.",
+      "features": [
+        "Vibrant blue color for a stylish look",
+        "Perfect for summer casual wear",
+        "Classic fit for maximum comfort",
+        "Versatile design pairs well with various tops",
+        "Ideal for parties and casual outings",
+        "Affordable price at $40.99",
+        "Durable construction for long-lasting wear"
+      ],
+      "keywords": "Peter England, men's jeans, blue jeans, casual wear, summer fashion, party jeans, stylish jeans, men's apparel, bottomwear, affordable jeans"
+    },
+    "usage": {
+      "prompt_tokens": 3139,
+      "completion_tokens": 272,
+      "total_tokens": 3411
+    },
+    "estimated_cost_usd": 0.000634,
+    "quality_issues": [
+      "description length 116 words (target 150-200)"
+    ]
+  },
+  {
+    "product_id": 59263,
+    "input": {
+      "name": "Titan Women Silver Watch",
+      "price": 111.99,
+      "category": "Accessories > Watches > Watches",
+      "image_path": "product_images/product_59263.jpg"
+    },
+    "generated_at": "2026-10-08T17:32:25",
+    "status": "success",
+    "listing": {
+      "title": "Elegant Titan Women's Silver Watch - Casual Chic",
+      "description": "Elevate your accessory game with the Titan Women Silver Watch, a perfect blend of elegance and functionality. Priced at $111.99, this stunning timepiece is designed for the modern woman who values style and practicality. The watch features a sleek silver finish that complements any outfit, making it ideal for casual winter wear. Its minimalist design is accented by a classic round dial and delicate hour markers, ensuring that you not only keep track of time but do so with sophistication. This versatile accessory is perfect for everyday use, whether you're at work or out with friends, adding a touch of glamour to your ensemble. Invest in timeless elegance and let your wrist do the talking with this must-have watch.",
+      "features": [
+        "Sleek silver finish for a modern look",
+        "Classic round dial with easy-to-read hour markers",
+        "Designed for casual winter wear",
+        "Perfect for everyday use and special occasions",
+        "Lightweight and comfortable fit",
+        "Versatile accessory that complements any outfit",
+        "Water-resistant for durability"
+      ],
+      "keywords": "Titan watch, women's silver watch, casual watch, winter accessories, elegant watches, stylish timepieces, affordable luxury, minimalist design, everyday wear, modern accessories"
+    },
+    "usage": {
+      "prompt_tokens": 3136,
+      "completion_tokens": 270,
+      "total_tokens": 3406
+    },
+    "estimated_cost_usd": 0.000632,
+    "quality_issues": [
+      "description length 119 words (target 150-200)"
+    ]
+  },
+  {
+    "product_id": 21379,
+    "input": {
+      "name": "Manchester United Men Solid Black Track Pants",
+      "price": 32.99,
+      "category": "Apparel > Bottomwear > Track Pants",
+      "image_path": "product_images/product_21379.jpg"
+    },
+    "generated_at": "2026-10-08T17:32:30",
+    "status": "success",
+    "listing": {
+      "title": "Manchester United Men's Solid Black Track Pants",
+      "description": "Step up your casual wear game with the Manchester United Men Solid Black Track Pants. Designed for fans and comfort seekers alike, these track pants are perfect for the fall season. Made in a sleek solid black color, they offer versatility for any casual outing or lounging at home. Featuring the iconic Manchester United logo, these pants showcase your team spirit while ensuring style. The relaxed fit allows for ease of movement, whether you’re heading to the gym or enjoying a day out. Pair them effortlessly with your favorite tee or hoodie for a complete look. At an unbeatable price of just $32.99, these track pants are a must-have for any Manchester United supporter. Upgrade your wardrobe today and sport your allegiance with pride!",
+      "features": [
+        "Solid black color for versatile styling",
+        "Iconic Manchester United logo",
+        "Relaxed fit for maximum comfort",
+        "Perfect for casual outings and lounging",
+        "Ideal for the fall season",
+        "Affordable price at $32.99",
+        "Easy to pair with various tops"
+      ],
+      "keywords": "Manchester United, track pants, black track pants, men's apparel, casual wear, fall fashion, sportswear, comfortable pants, football merchandise, men's bottomwear"
+    },
+    "usage": {
+      "prompt_tokens": 3141,
+      "completion_tokens": 268,
+      "total_tokens": 3409
+    },
+    "estimated_cost_usd": 0.000632,
+    "quality_issues": [
+      "description length 124 words (target 150-200)"
+    ]
+  },
+  {
+    "product_id": 53759,
+    "input": {
+      "name": "Puma Men Grey T-shirt",
+      "price": 29.99,
+      "category": "Apparel > Topwear > Tshirts",
+      "image_path": "product_images/product_53759.jpg"
+    },
+    "generated_at": "2026-10-08T17:32:34",
+    "status": "success",
+    "listing": {
+      "title": "Puma Men Grey T-shirt - Casual Summer Essential",
+      "description": "Elevate your summer wardrobe with the Puma Men Grey T-shirt, designed for the modern man who values both style and comfort. This versatile t-shirt features a sleek grey color that pairs effortlessly with your favorite jeans or shorts, making it perfect for casual outings or relaxed weekends. The lightweight fabric ensures breathability, keeping you cool on warm days, while the classic fit offers a flattering silhouette. Whether you're hitting the park, running errands, or enjoying a laid-back day with friends, this t-shirt is your go-to choice. The iconic Puma logo adds a touch of sporty flair, making it a staple for any active lifestyle. Embrace effortless style this summer with the Puma Men Grey T-shirt.",
+      "features": [
+        "Stylish grey color for versatile pairing",
+        "Designed for men, ideal for casual wear",
+        "Lightweight and breathable for summer comfort",
+        "Classic fit for a flattering silhouette",
+        "Iconic Puma logo for sporty appeal",
+        "Perfect for everyday wear and casual outings"
+      ],
+      "keywords": "Puma, grey t-shirt, men t-shirt, casual wear, summer apparel, lightweight t-shirt, sporty style, everyday fashion, classic fit, men's apparel"
+    },
+    "usage": {
+      "prompt_tokens": 3139,
+      "completion_tokens": 266,
+      "total_tokens": 3405
+    },
+    "estimated_cost_usd": 0.00063,
+    "quality_issues": [
+      "description length 115 words (target 150-200)"
+    ]
+  }
+]

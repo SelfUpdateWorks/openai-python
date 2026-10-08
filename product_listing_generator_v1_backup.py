@@ -1,31 +1,3 @@
-"""
-product_listing_generator.py
-============================
-LAB | API Calling to ChatGPT  (Ironhack – Day 4)
-
-Product images + basic metadata (name, price, category) are sent to an
-OpenAI vision model, which returns a ready-to-use e-commerce listing
-(title, description, features, SEO keywords) as JSON.
-
-Pipeline
---------
-  Step 1  Set up the API client (key read from an environment variable)
-  Step 2  Prepare the dataset (HuggingFace fashion images, local fallback)
-  Step 3  Encode images to base64
-  Step 4  Build the product listing prompt
-  Step 5  Call the vision API and parse the JSON response
-  Step 6  Process multiple products in a batch and save the results
-  Step 7  Error handling and best practices (retries, backoff, validation)
-  Bonus   Token/cost tracking + simple quality check
-
-Usage
------
-  export OPENAI_API_KEY="sk-..."          # never hard-code the key!
-  python product_listing_generator.py               # 5 products
-  python product_listing_generator.py --num 10      # 10 products
-  python product_listing_generator.py --demo-errors # error-handling demo
-"""
-
 import argparse
 import base64
 import json
@@ -193,7 +165,7 @@ Product Information:
 Please create a professional product listing that includes:
 
 1. **Product Title** (catchy, SEO-friendly, 60 characters max)
-2. **Product Description** (detailed, MINIMUM 150 words, maximum 200 words; aim for about 175 words in 3 short paragraphs)
+2. **Product Description** (detailed, 150-200 words)
    - Highlight key features and benefits
    - Use persuasive language
    - Include relevant details visible in the image
@@ -313,42 +285,10 @@ def quality_check(listing: dict) -> list[str]:
     return issues
 
 
-def expand_description(client: OpenAI, listing: dict) -> tuple[dict, dict]:
-    """
-    Bonus 4 – automatic re-generation for low scores.
-    The model reliably writes descriptions that are too short, even when the
-    prompt insists on a minimum. Instead of re-sending the image (expensive),
-    we send only the JSON back as a cheap text-only request and ask for a
-    longer description, using the current word count as concrete feedback.
-    """
-    words = len(listing.get("description", "").split())
-    request = (
-        f"Here is a product listing in JSON:\n{json.dumps(listing, ensure_ascii=False)}\n\n"
-        f"The description has only {words} words. Rewrite ONLY the description so it "
-        f"has between 160 and 190 words. Add value by expanding on styling ideas, "
-        f"occasions and benefits that follow from the existing text. Do not add any "
-        f"new facts about materials, fabric or technical specifications. "
-        f"Return the complete listing as JSON with the same keys."
-    )
-    response = client.chat.completions.create(
-        model=MODEL,
-        messages=[{"role": "user", "content": request}],
-        temperature=0.7,
-        max_tokens=900,
-        response_format={"type": "json_object"},
-    )
-    usage = {
-        "prompt_tokens": response.usage.prompt_tokens,
-        "completion_tokens": response.usage.completion_tokens,
-        "total_tokens": response.usage.total_tokens,
-    }
-    return parse_json_response(response.choices[0].message.content), usage
-
-
 # ---------------------------------------------------------------------------
 # Step 6: Generate one listing / process the whole batch
 # ---------------------------------------------------------------------------
-def generate_listing(client: OpenAI, product: dict, auto_fix: bool = True) -> dict:
+def generate_listing(client: OpenAI, product: dict) -> dict:
     """Full pipeline for one product. Never raises: errors are recorded."""
     result = {
         "product_id": product["id"],
@@ -361,29 +301,12 @@ def generate_listing(client: OpenAI, product: dict, auto_fix: bool = True) -> di
             product["name"], product["price"], product["category"],
             product.get("additional_info"))
         listing, usage = call_vision_api(client, prompt, image_b64, mime)
-        issues = quality_check(listing)
-        result["regenerated"] = False
-
-        # Bonus 4: one automatic repair attempt if the description is too short
-        if auto_fix and any(i.startswith("description length") for i in issues):
-            words_before = len(listing.get("description", "").split())
-            try:
-                fixed, fix_usage = expand_description(client, listing)
-                if not quality_check(fixed) or len(quality_check(fixed)) < len(issues):
-                    listing, issues = fixed, quality_check(fixed)
-                    result["regenerated"] = True
-                    result["words_before_fix"] = words_before
-                for k in usage:
-                    usage[k] += fix_usage[k]
-            except Exception as e:  # repair is optional – keep the original
-                print(f"    ⚠ auto-fix failed ({type(e).__name__}), keeping original")
-
         result.update(
             status="success",
             listing=listing,
             usage=usage,
             estimated_cost_usd=round(estimate_cost(usage), 6),
-            quality_issues=issues,
+            quality_issues=quality_check(listing),
         )
     except AuthenticationError:
         raise  # fatal for the whole batch – stop immediately
@@ -403,10 +326,6 @@ def process_products(client: OpenAI, products_df: pd.DataFrame) -> list[dict]:
         if result["status"] == "success":
             title = result["listing"].get("title", "(no title)")
             print(f"    ✓ {title}")
-            if result.get("regenerated"):
-                words_now = len(result["listing"].get("description", "").split())
-                print(f"    ↻ description auto-expanded: "
-                      f"{result['words_before_fix']} → {words_now} words")
             print(f"    tokens: {result['usage']['total_tokens']}  "
                   f"cost: ${result['estimated_cost_usd']:.5f}")
             if result["quality_issues"]:
@@ -436,7 +355,6 @@ def print_summary(results: list[dict]) -> None:
     print("=" * 50)
     print(f"Successful listings : {len(ok)}/{len(results)}")
     print(f"Failed              : {len(failed)}")
-    print(f"Auto-fixed          : {sum(1 for r in ok if r.get('regenerated'))}")
     print(f"Flagged for review  : {len(flagged)}")
     print(f"Total tokens        : {tokens}")
     print(f"Estimated cost      : ${cost:.5f}")
