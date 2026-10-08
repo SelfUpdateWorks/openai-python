@@ -1,0 +1,13 @@
+from datasets import load_dataset
+import pandas as pd
+
+dataset = load_dataset(
+    "ashraq/fashion-product-images-small",
+    split="train[:20]"
+)
+
+products_df = pd.DataFrame(dataset)
+
+print(products_df.columns.tolist())
+print(products_df.head(3))
+
